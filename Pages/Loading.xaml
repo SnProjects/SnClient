@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+    
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:effects="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+                 Title=""
+                 x:Class="SnClient.Pages.Loading">
+        <ContentPage.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.5" x:Name="BackgroundImage">
+                    
+                </Image>
+                <ActivityIndicator IsRunning="True" IsVisible="True" Grid.Row="0" />
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>

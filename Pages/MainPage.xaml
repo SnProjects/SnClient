@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+                <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             x:Class="SnClient.MainPage"
+                             Title="Minecraft Launcher">
+                
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        
+                        <Grid x:Name="JavaZone" Grid.Row="0" Grid.Column="0">
+                            <VerticalStackLayout>
+                                <Label Text="Java" FontSize="18" FontAttributes="Bold" Margin="0,0,0,5" />
+                                <HorizontalStackLayout>
+                                    <Label Text="Selected Index: " />
+                                    <Label Text="{Binding SelectedIndex, Source={x:Reference JavaListView}}" />
+                                </HorizontalStackLayout>
+                                <ListView Margin="0,5,0,0" x:Name="JavaListView" HeightRequest="180" />
+                                <Button HorizontalOptions="End" Text="Refresh" x:Name="RefJavaBtn" Clicked="RefJavaBtn_Click" />
+                            </VerticalStackLayout>
+                        </Grid>
+                        
+                        <Grid Grid.Row="0" Grid.Column="1" x:Name="GameListGrid">
+                            <VerticalStackLayout>
+                                <Label Text="Game List" FontSize="18" FontAttributes="Bold" Margin="0,0,0,5" />
+                                <HorizontalStackLayout>
+                                    <Label Text="Selected Index: " />
+                                    <Label Text="{Binding SelectedIndex, Source={x:Reference GameListView}}" />
+                                </HorizontalStackLayout>
+                                <ListView Margin="0,5,0,0" x:Name="GameListView" HeightRequest="180">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <VerticalStackLayout>
+                                                    <Label>
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Name: " />
+                                                                <Span Text="{Binding Name}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label>
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Id: " />
+                                                                <Span Text="{Binding Id}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label>
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="DirName: " />
+                                                                <Span Text="{Binding DirName}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label>
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="MainClass: " />
+                                                                <Span Text="{Binding MainClass}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label>
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Assets: " />
+                                                                <Span Text="{Binding Assets}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </VerticalStackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <Button Text="Refresh" x:Name="RefGameListBtn" HorizontalOptions="End" Clicked="RefGameListBtn_Click" />
+                            </VerticalStackLayout>
+                        </Grid>
+                        
+                        <Grid Grid.Row="0" Grid.Column="2" x:Name="AuthenticatorGrid">
+                            <VerticalStackLayout>
+                                <Label Text="Authenticator (Offline)" FontSize="18" FontAttributes="Bold" Margin="0,0,0,5" />
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <Label Text="Username: " VerticalOptions="Center" />
+                                    <Entry x:Name="OfflUN" WidthRequest="160" Text="Example" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                        
+                        <Grid Grid.Row="1" Grid.Column="0" x:Name="YggdrasilAuthenticatorGrid">
+                            <VerticalStackLayout>
+                                <Label Text="Authenticator (Yggdrasil)" FontSize="18" FontAttributes="Bold" Margin="0,0,0,5" />
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <Label Text="Email: " VerticalOptions="Center" />
+                                    <Entry x:Name="YggUN" WidthRequest="160" Text="example@example.com" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <Label Text="Password: " VerticalOptions="Center" />
+                                    <Entry x:Name="YggPW" WidthRequest="160" IsPassword="True" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                        
+                        <Grid Grid.Row="1" Grid.Column="1" x:Name="LaunchSettingsGrid">
+                            <Label Text="Launch Settings" FontSize="18" FontAttributes="Bold" Margin="0,0,0,5" />
+                            <!-- TODO -->
+                        </Grid>
+                        
+                        <Grid Grid.Row="1" Grid.Column="2" x:Name="LaunchGrid">
+                            <VerticalStackLayout>
+                                <Label Text="Launch!" FontSize="18" FontAttributes="Bold" Margin="0,0,0,5" />
+                                <ProgressBar x:Name="RcProgress" HeightRequest="8" />
+                                <Button Margin="0,10,0,0" Text="Launch!" x:Name="LaunchBtn" Clicked="LaunchBtn_Click" />
+                                <Editor x:Name="GameLaunchLogs" Margin="0,10,0,0" HeightRequest="100" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Grid>
+                
+                </ContentPage>
