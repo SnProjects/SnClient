@@ -2,27 +2,25 @@
 using SnClient.GameBasis;
 using System.Net;
 
-namespace SnClient
+namespace SnClient.Pages;
+
+public partial class App : Application
 {
-    public partial class App : Application
+    public App()
     {
-        public App()
-        {
-            InitializeComponent();
-            Sharpnado.MaterialFrame.Initializer.Initialize(loggerEnable: false, debugLogEnable: false);
+        InitializeComponent();
 
-            ServicePointManager.DefaultConnectionLimit = 512;
+        ServicePointManager.DefaultConnectionLimit = 512;
 
-            /*
-             Initialize the basic helpers of Projbobcat.
-             */
-            ServiceHelper.Init();
-            HttpClientHelper.Init();
+        /*
+         Initialize the basic helpers of Projbobcat.
+         */
+        ServiceHelper.Init();
+        HttpClientHelper.Init();
 
-            // Initialize the launcher core.
-            Core.CoreInit();
+        // Initialize the launcher core.
+        Core.CoreInit();
 
-            MainPage = new AppShell();
-        }
+        MainPage = new AppShell();
     }
 }

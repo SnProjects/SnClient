@@ -1,4 +1,4 @@
-﻿namespace SnClient
+﻿namespace SnClient.Pages
 {
     public partial class AppShell : Shell
     {

@@ -11,7 +11,7 @@ using ProjBobcat.DefaultComponent.ResourceInfoResolver;
 using ProjBobcat.Event;
 using ProjBobcat.Interface;
 
-namespace SnClient
+namespace SnClient.Pages
 {
     public partial class MainPage : ContentPage
     {
