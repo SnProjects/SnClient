@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using ProjBobcat.Class.Helper;
 using ProjBobcat.Class.Model.Mojang;
 using ProjBobcat.DefaultComponent.Launch;
@@ -33,7 +32,7 @@ namespace SnClient.GameBasis
             };
         }
 
-        public static async Task<VersionManifest?> GetVersionManifestTaskAsync()
+        /*public static async Task<VersionManifest?> GetVersionManifestTaskAsync()
         {
             const string vmUrl = "http://launchermeta.mojang.com/mc/game/version_manifest.json";
             var contentRes = await HttpHelper.Get(vmUrl);
@@ -41,6 +40,6 @@ namespace SnClient.GameBasis
             var model = JsonConvert.DeserializeObject<VersionManifest>(content);
 
             return model;
-        }
+        }*/
     }
 }

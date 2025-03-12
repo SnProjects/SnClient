@@ -30,9 +30,9 @@ namespace SnClient.Pages
         /// <summary>
         ///     Refreshes the list of Java(s) installed.
         /// </summary>
-        private void RefreshJavaList()
+        private async void RefreshJavaList()
         {
-            javaList = JavaDetection.DetectJava();
+            javaList = await JavaDetection.DetectJava();
             JavaListView.ItemsSource = javaList;
         }
 
@@ -47,7 +47,7 @@ namespace SnClient.Pages
 
         private async Task DownloadResourcesAsync(VersionInfo versionInfo)
         {
-            var versions = await Core.GetVersionManifestTaskAsync();
+            /*var versions = await Core.GetVersionManifestTaskAsync();
             var rc = new DefaultResourceCompleter
             {
                 CheckFile = true,
@@ -66,14 +66,12 @@ namespace SnClient.Pages
                         VersionInfo = versionInfo,
                         CheckLocalFiles = true,
                         Versions = versions?.Versions,
-                        MaxDegreeOfParallelism = 8
                     },
                     new LibraryInfoResolver
                     {
                         BasePath = Core.core.RootPath,
                         VersionInfo = versionInfo,
                         CheckLocalFiles = true,
-                        MaxDegreeOfParallelism = 8
                     }
                 },
                 TotalRetry = 2
@@ -89,7 +87,7 @@ namespace SnClient.Pages
                 });
             };
 
-            await rc.CheckAndDownloadTaskAsync();
+            await rc.CheckAndDownloadTaskAsync();*/
         }
 
         private void RefJavaBtn_Click(object sender, EventArgs e)
@@ -136,6 +134,19 @@ namespace SnClient.Pages
                 {
                     Username = OfflUN.Text, //Offline username
                     LauncherAccountParser = Core.core.VersionLocator.LauncherAccountParser
+                },
+                
+                GameArguments = new GameArguments
+                {
+                    GcType = GcType.G1Gc,
+                    JavaExecutable = javaList.First(),
+                    Resolution = new ResolutionModel
+                    {
+                        Height = 600,
+                        Width = 800
+                    },
+                    MinMemory = 512,
+                    MaxMemory = 1024
                 }
             };
 

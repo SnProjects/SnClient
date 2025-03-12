@@ -15,8 +15,6 @@ public partial class App : Application
         /*
          Initialize the basic helpers of Projbobcat.
          */
-        ServiceHelper.Init();
-        HttpClientHelper.Init();
 
         // Initialize the launcher core.
         Core.CoreInit();
