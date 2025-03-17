@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnClient.Pages.DebugWindow"
+             BackgroundColor="#1e1e1e"
+             Title="Debug Console"
+             Padding="10">
+    <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Label Text="Debug Log" FontSize="16" FontAttributes="Bold" TextColor="White" />
+            <Editor x:Name="DebugLogLabel"
+                   Text="{Binding DebugLogText}"
+                   TextColor="LightGray"
+                   FontSize="12"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -10,6 +10,9 @@ namespace SnClient.Pages
         public Loading()
         {
             InitializeComponent();
+            
+            // Check if signed in
+            
         }
         
     }

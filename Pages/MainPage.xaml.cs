@@ -32,7 +32,6 @@ namespace SnClient.Pages
         /// </summary>
         private async void RefreshJavaList()
         {
-            javaList = await JavaDetection.DetectJava();
             JavaListView.ItemsSource = javaList;
         }
 
